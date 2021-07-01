@@ -1,12 +1,13 @@
 import Routes from "../../Routes"
 import GlobalStyle from '../../styles/global'
+import { PageProvider } from "../../providers/PageValue"
 
 function App() {
   return (
-    <div>
+    <PageProvider>
       <GlobalStyle />
       {Routes()}
-    </div>
+    </PageProvider>
   );
 }
 
