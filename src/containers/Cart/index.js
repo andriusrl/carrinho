@@ -1,25 +1,32 @@
 import React from "react";
+import { Redirect } from "react-router-dom"
 import { PageValue } from "../../providers/PageValue"
-import { Division, ProductWrapper, Wrapper, Total, FinishButton, FinishWrapper } from "./style";
-
-// import up from "../../mocks/up.json"
+import { Division, ProductWrapper, Wrapper, Total, FinishButton, FinishWrapper, Congratulations, Title } from "./style";
 import Product from "../../components/Product";
-
 
 function Cart() {
   const { pageValue, setPageValue } = PageValue()
-  console.log(pageValue)
+  console.log("pagina " + pageValue.page)
 
-  // console.log(up)
+  const changePage = ()=>{
+    setPageValue({
+      page: "Main"
+    })
+  }
+
+  if (pageValue.page !== "Cart") {
+    console.log("entrou no mais importante")
+    return <Redirect to="/" />
+  }
   return (
     <Wrapper>
-      <h2>
+      <Title>
         Meu carrinho
-      </h2>
+      </Title>
       <Division />
       <ProductWrapper>
         {
-          pageValue.cart.items.map((product) => { //TROCAR DEPOIS PELA VARIAVEL "up" QUE VEM DO PROVIDER
+          pageValue.cart.items.map((product) => {
             return (
               <Product
                 key={product.productId}
@@ -34,15 +41,17 @@ function Cart() {
       </ProductWrapper>
       <Division />
       <Total>
-        <h2>Total</h2>
-        <h2>R$ {(pageValue.cart.value/100).toFixed(2)}</h2>
-        {/* TROCAR VARIAVEL "UP QUEM VEM DO PROVIDER" */}
+        <div>
+          <h2>Total</h2>
+          <h2>R$ {(pageValue.cart.value / 100).toFixed(2)}</h2>
+        </div>
+        {pageValue.cart.value >= 1000 ? <Congratulations>Parabéns, sua compra tem frete grátis !</Congratulations> : false}
       </Total>
       <Division />
       <FinishWrapper>
-        <FinishButton>Finalizar compra</FinishButton>
+        <FinishButton onClick={changePage}>Finalizar compra</FinishButton>
       </FinishWrapper>
-    </Wrapper>
+    </Wrapper >
   );
 }
 

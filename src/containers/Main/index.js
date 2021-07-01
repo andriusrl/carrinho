@@ -11,7 +11,7 @@ function Main() {
 
   const changePage = (cart)=>{
     setPageValue({
-      page: "carrinho",
+      page: "Cart",
       cart: cart
     })
   }
@@ -22,8 +22,8 @@ function Main() {
 
     return (
       <Wrapper>
-        <button onClick={()=>{changePage(down)}} >Abaixo de 10 reais</button>
-        <button onClick={()=>{changePage(up)}} >Acima de 10 reais</button>
+        <button onClick={()=>{changePage(down)}} >Abaixo de 10 reais (sem frete)</button>
+        <button onClick={()=>{changePage(up)}} >Acima de 10 reais (com frete)</button>
       </Wrapper>
     );
 }
