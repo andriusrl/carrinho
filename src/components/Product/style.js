@@ -21,6 +21,7 @@ export const Description = styled.div`
     };
     p:nth-of-type(2){
         color: black;
-        font-size: 14px;
+        font-size: 13px;
+        font-weight: 600;
     };
 `

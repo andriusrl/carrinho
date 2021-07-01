@@ -7,7 +7,7 @@ function Product(props) {
         <Wrapper>
             <Image src={props.image} />
             <Description>
-                <h3>{props.name}</h3>
+                <h3>{props.name[0].toUpperCase()}{props.name.slice(1).toLowerCase()}</h3>
                 <p>R$ {(props.price / 100).toFixed(2)}</p>
                 <p>R$ {(props.sellingPrice / 100).toFixed(2)}</p>
             </Description>
