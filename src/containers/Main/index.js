@@ -7,7 +7,6 @@ import up from "../../mocks/up.json"
 
 function Main() {
   const { pageValue, setPageValue } = PageValue()
-  console.log(pageValue)
 
   const changePage = (cart)=>{
     setPageValue({

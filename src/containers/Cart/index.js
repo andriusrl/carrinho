@@ -6,7 +6,6 @@ import Product from "../../components/Product";
 
 function Cart() {
   const { pageValue, setPageValue } = PageValue()
-  console.log("pagina " + pageValue.page)
 
   const changePage = ()=>{
     setPageValue({
@@ -15,7 +14,6 @@ function Cart() {
   }
 
   if (pageValue.page !== "Cart") {
-    console.log("entrou no mais importante")
     return <Redirect to="/" />
   }
   return (
